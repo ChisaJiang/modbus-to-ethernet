@@ -24,14 +24,25 @@
 
 #include <assert.h>
 #include <inttypes.h>
-
+#include "main.h"
+#include "FreeRTOS.h"
+#include "task.h"
 
 #define	INLINE                      inline
 #define PR_BEGIN_EXTERN_C           extern "C" {
 #define	PR_END_EXTERN_C             }
 
-#define ENTER_CRITICAL_SECTION( )   
-#define EXIT_CRITICAL_SECTION( )    
+#define ENTER_CRITICAL_SECTION( )   taskENTER_CRITICAL()    // 进入临界区
+#define EXIT_CRITICAL_SECTION( )    taskEXIT_CRITICAL()     // 退出临界区
+
+extern TIM_HandleTypeDef htim4;
+#define UX_TIM                      htim4
+#define UX_TIM_PSC                  (100 * 50)
+#define UX_TIM_IRQ_HANDLER          TIM4_IRQHandler
+
+extern UART_HandleTypeDef huart2;
+#define UX_UART                     huart2
+#define UX_USART_IRQ_HANDLER        USART2_IRQHandler
 
 typedef uint8_t BOOL;
 

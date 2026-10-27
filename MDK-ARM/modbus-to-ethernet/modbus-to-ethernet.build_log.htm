@@ -27,60 +27,11 @@ Project File Date:  10/27/2026
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 5 (build 528)', folder: 'E:\AppDownload\Keil\core\ARM\ARMCC\Bin'
 Build target 'modbus-to-ethernet'
-compiling mb.c...
-..\Middlewares\modbus\mb.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\mb.c: 0 warnings, 1 error
-compiling mbfunccoils.c...
-..\Middlewares\modbus\functions\mbfunccoils.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbfunccoils.c: 0 warnings, 1 error
-compiling mbfuncdisc.c...
-..\Middlewares\modbus\functions\mbfuncdisc.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbfuncdisc.c: 0 warnings, 1 error
-compiling mbfuncholding.c...
-..\Middlewares\modbus\functions\mbfuncholding.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbfuncholding.c: 0 warnings, 1 error
-compiling mbfuncfile.c...
-..\Middlewares\modbus\functions\mbfuncfile.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbfuncfile.c: 0 warnings, 1 error
-compiling mbfuncother.c...
-..\Middlewares\modbus\functions\mbfuncother.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbfuncother.c: 0 warnings, 1 error
-compiling mbutils.c...
-..\Middlewares\modbus\functions\mbutils.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbutils.c: 0 warnings, 1 error
-compiling mbfuncinput.c...
-..\Middlewares\modbus\functions\mbfuncinput.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\functions\mbfuncinput.c: 0 warnings, 1 error
-compiling mbfuncdiag.c...
-compiling mbrtu.c...
-..\Middlewares\modbus\rtu\mbrtu.c(35): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\rtu\mbrtu.c: 0 warnings, 1 error
-compiling mbcrc.c...
-..\Middlewares\modbus\rtu\mbcrc.c(31): error:  #5: cannot open source input file "port.h": No such file or directory
-  #include "port.h"
-..\Middlewares\modbus\rtu\mbcrc.c: 0 warnings, 1 error
-compiling portevent.c...
-..\Middlewares\modbus\port\portevent.c(23): error:  #5: cannot open source input file "mb.h": No such file or directory
-  #include "mb.h"
-..\Middlewares\modbus\port\portevent.c: 0 warnings, 1 error
-compiling porttimer.c...
-..\Middlewares\modbus\port\porttimer.c(26): error:  #5: cannot open source input file "mb.h": No such file or directory
-  #include "mb.h"
-..\Middlewares\modbus\port\porttimer.c: 0 warnings, 1 error
-compiling portserial.c...
-..\Middlewares\modbus\port\portserial.c(25): error:  #5: cannot open source input file "mb.h": No such file or directory
-  #include "mb.h"
-..\Middlewares\modbus\port\portserial.c: 0 warnings, 1 error
-"modbus-to-ethernet\modbus-to-ethernet.axf" - 13 Error(s), 0 Warning(s).
+compiling slave_task.c...
+linking...
+Program Size: Code=13696 RO-data=1024 RW-data=368 ZI-data=20216  
+FromELF: creating hex file...
+"modbus-to-ethernet\modbus-to-ethernet.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -103,8 +54,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.0.1
-Target not created.
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
