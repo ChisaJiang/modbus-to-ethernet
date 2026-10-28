@@ -94,13 +94,9 @@ static void prvvUARTRxISR( void )
     pxMBFrameCBByteReceived(  );
 }
 
-void UX_USART_IRQ_HANDLER(void)
-{
-    if(__HAL_UART_GET_FLAG(&UX_UART, UART_FLAG_RXNE) != RESET){
-        prvvUARTRxISR();
-    }
-
-    if(__HAL_UART_GET_FLAG(&UX_UART, UART_FLAG_TXE) != RESET){
-        prvvUARTTxReadyISR();
-    }
+void MB_SlaveTxReadyIRQ(void){
+    prvvUARTTxReadyISR();
+}
+void MB_SlaveRxReadyIRQ(void){
+    prvvUARTRxISR();
 }

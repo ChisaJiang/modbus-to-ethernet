@@ -180,4 +180,45 @@ PR_BEGIN_EXTERN_C
 #ifdef __cplusplus
     PR_END_EXTERN_C
 #endif
+
+/***************************** Master ************************************/
+
+// These source configuration options already have project values above.
+// Keep the FreeModbus defaults here as comments without overriding them.
+// #define MB_ASCII_TIMEOUT_SEC                    (  1 )
+// #define MB_FUNC_HANDLERS_MAX                    ( 16 )
+// #define MB_FUNC_OTHER_REP_SLAVEID_BUF           ( 32 )
+// #define MB_FUNC_OTHER_REP_SLAVEID_ENABLED       (  1 )
+// #define MB_FUNC_READ_INPUT_ENABLED              (  1 )
+// #define MB_FUNC_READ_HOLDING_ENABLED            (  1 )
+// #define MB_FUNC_WRITE_HOLDING_ENABLED           (  1 )
+// #define MB_FUNC_WRITE_MULTIPLE_HOLDING_ENABLED  (  1 )
+// #define MB_FUNC_READ_COILS_ENABLED              (  1 )
+// #define MB_FUNC_WRITE_COIL_ENABLED              (  1 )
+// #define MB_FUNC_WRITE_MULTIPLE_COILS_ENABLED    (  1 )
+// #define MB_FUNC_READ_DISCRETE_INPUTS_ENABLED    (  1 )
+// #define MB_FUNC_READWRITE_HOLDING_ENABLED       (  1 )
+
+/*! \brief If Modbus Master ASCII support is enabled. */
+#define MB_MASTER_ASCII_ENABLED                 (  0 )
+/*! \brief If Modbus Master RTU support is enabled. */
+#define MB_MASTER_RTU_ENABLED                   (  1 )
+/*! \brief If Modbus Master TCP support is enabled. */
+#define MB_MASTER_TCP_ENABLED                   (  0 )
+/*! \brief If Modbus Slave ASCII support is enabled. */
+#define MB_SLAVE_ASCII_ENABLED                  (  0 )
+/*! \brief If Modbus Slave RTU support is enabled. */
+#define MB_SLAVE_RTU_ENABLED                    (  1 )
+/*! \brief If Modbus Slave TCP support is enabled. */
+#define MB_SLAVE_TCP_ENABLED                    (  0 )
+
+#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0
+/*! \brief Delay after a master broadcast frame, before sending another frame. */
+#define MB_MASTER_DELAY_MS_CONVERT              (200 )
+/*! \brief Time to wait for a slave response before processing a timeout. */
+#define MB_MASTER_TIMEOUT_MS_RESPOND            (100 )
+/*! \brief Total number of slaves in the Modbus master system. */
+#define MB_MASTER_TOTAL_SLAVE_NUM               ( 16 )
+#endif
+
 #endif

@@ -24,9 +24,12 @@
 
 #include <assert.h>
 #include <inttypes.h>
+#include "mbconfig.h"
 #include "main.h"
 #include "FreeRTOS.h"
 #include "task.h"
+#include "event_groups.h"
+#include "semphr.h"
 
 #define	INLINE                      inline
 #define PR_BEGIN_EXTERN_C           extern "C" {
@@ -62,5 +65,7 @@ typedef int32_t LONG;
 #ifndef FALSE
 #define FALSE           0
 #endif
+
+#define xIsInISR() ((xPortIsInsideInterrupt() == pdTRUE) ? TRUE : FALSE)
 
 #endif

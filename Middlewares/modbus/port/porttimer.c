@@ -33,8 +33,8 @@ static void prvvTIMERExpiredISR( void );
 BOOL
 xMBPortTimersInit( USHORT usTim1Timerout50us )
 {
-    UX_TIM.Instance->PSC = UX_TIM_PSC;
-    UX_TIM.Instance->ARR = usTim1Timerout50us;
+    UX_TIM.Instance->PSC = UX_TIM_PSC - 1;
+    UX_TIM.Instance->ARR = usTim1Timerout50us - 1;
     return TRUE;
 }
 
@@ -64,10 +64,7 @@ static void prvvTIMERExpiredISR( void )
     ( void )pxMBPortCBTimerExpired(  );
 }
 
-void UX_TIM_IRQ_HANDLER(void)
+void MB_SlaveTimerIRQ(void)
 {
-    if(__HAL_TIM_GET_FLAG(&UX_TIM, TIM_FLAG_UPDATE) != RESET){
-        __HAL_TIM_CLEAR_FLAG(&UX_TIM, TIM_FLAG_UPDATE);
-        prvvTIMERExpiredISR();
-    }
+    prvvTIMERExpiredISR();
 }
