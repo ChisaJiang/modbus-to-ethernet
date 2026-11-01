@@ -1,10 +1,13 @@
 #include "port.h"
-typedef enum {
-    MODBUS_ROLE_SLAVE,
-    MODBUS_ROLE_MASTER
-} ModbusRole;
 
-static volatile ModbusRole modbus_role = MODBUS_ROLE_SLAVE;
+static volatile ModbusRole modbus_role = MODBUS_ROLE_MASTER;
+
+/* Select which protocol stack owns the UART/TIM interrupts.
+ * MUST be called before eMBMasterInit()/eMBInit() enables them. */
+void vMBSetModbusRole( ModbusRole eRole )
+{
+    modbus_role = eRole;
+}
 
 extern void MB_MasterTxReadyIRQ(void);
 extern void MB_MasterRxReadyIRQ(void);

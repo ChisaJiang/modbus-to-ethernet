@@ -68,4 +68,13 @@ typedef int32_t LONG;
 
 #define xIsInISR() ((xPortIsInsideInterrupt() == pdTRUE) ? TRUE : FALSE)
 
+/* USART2/TIM4 are shared by the slave and the master protocol stack, so the
+ * interrupt handlers must know which one is currently in use. */
+typedef enum {
+    MODBUS_ROLE_SLAVE,
+    MODBUS_ROLE_MASTER
+} ModbusRole;
+
+void vMBSetModbusRole( ModbusRole eRole );
+
 #endif

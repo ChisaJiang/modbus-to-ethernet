@@ -45,6 +45,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
+TaskHandle_t testTaskHandle = NULL;
 
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
@@ -57,7 +58,10 @@ const osThreadAttr_t defaultTask_attributes = {
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
+void testTask(void *pvParameters);
 extern void SlaveTaskCreate(void);
+extern void MasterTaskCreate(void);
+extern void test(void);
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void *argument);
@@ -96,7 +100,14 @@ void MX_FREERTOS_Init(void) {
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  SlaveTaskCreate();
+  //SlaveTaskCreate();
+  xTaskCreate(testTask, 
+			"testTask", 
+			256, 
+			NULL, 
+			3, 
+			&testTaskHandle);
+  MasterTaskCreate();
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
@@ -125,6 +136,13 @@ void StartDefaultTask(void *argument)
 
 /* Private application code --------------------------------------------------*/
 /* USER CODE BEGIN Application */
-
+void testTask(void *pvParameters)
+{
+	while(1)
+	{
+		test();
+		vTaskDelay(pdMS_TO_TICKS(500));  
+	}
+}
 /* USER CODE END Application */
 

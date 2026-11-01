@@ -36,6 +36,6 @@ void MasterTask(void *pvParameters)
     while(1)
     {
         eMBMasterPoll(  );
-		//vTaskDelay(pdMS_TO_TICKS(10));  
+		vTaskDelay(pdMS_TO_TICKS(10));  
     }
 }

@@ -1,6 +1,9 @@
 #include "mb.h"
 #include "mb_m.h"
 #include "mbport.h"
+#include <stdio.h>
+#include <string.h>
+
 
 //Master mode:DiscreteInputs variables
 
@@ -46,4 +49,12 @@ eMBErrorCode eMBMasterRegInputCB( UCHAR * pucRegBuffer, USHORT usAddress, USHORT
     }
 
     return eStatus;
+}
+
+void test(void)
+{
+    static uint8_t tt = 0;
+    eMBMasterReqReadInputRegister(0x05, 0, 3, 100);
+    printf("%d, %d, %d, %d\r\n", usMRegInBuf[4][0], usMRegInBuf[4][1], usMRegInBuf[4][2], tt);
+    tt++;
 }
